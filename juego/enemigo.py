@@ -25,7 +25,7 @@ def iniciar_bot(tablero_iniciado):
                 barco.fletar(orientacion, altitud, longitud, tablero_iniciado, 0)
             
 def disparar_bot(tablero_iniciado):
-    from .partida import apuntar
+    from .partida import apuntar, victoria
     
     i = random.randint(0, 9)
     j = random.randint(0, 9)
@@ -36,6 +36,7 @@ def disparar_bot(tablero_iniciado):
         tablero_iniciado[2, i, j] = "x"
         input("")
         disparar_bot(tablero_iniciado)
+        victoria(tablero_iniciado)
     else:
         print("¡El enemigo ha fallado!")
         tablero_iniciado[2, i, j] = "O"
@@ -44,3 +45,4 @@ def disparar_bot(tablero_iniciado):
         
     os.system('cls' if os.name == 'nt' else 'clear')
     print(tablero_iniciado[1:])
+    

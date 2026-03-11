@@ -12,10 +12,27 @@ def mostrar_dique():
 
 
 def obtener_coordenadas():
-    orientacion = int(input("Vertical(0) / Horizontal(1): "))
-    altitud = int(input("Altitud del barco: ")) - 1
-    longitud = int(input("Longitud del barco: ")) - 1
-    return orientacion, altitud, longitud
+    while True:
+        try:
+            orientacion = int(input("Vertical(0) / Horizontal(1): "))
+            
+            if orientacion == 33:
+                break
+            elif orientacion not in [0, 1]:
+                print("Por favor, introduce 0 para vertical o 1 para horizontal.")
+                continue
+                            
+            altitud = int(input("Altitud del barco: ")) - 1
+            if 0 > altitud > 9:
+                raise ValueError
+                        
+            longitud = int(input("Longitud del barco: ")) - 1
+            if 0 > longitud > 9:
+                raise ValueError
+                
+            return orientacion, altitud, longitud
+        except ValueError:
+            print("Por favor, introduce valores numéricos válidos.")
 
 
 def validar_colocacion(barco, orientacion, altitud, longitud, tamanno_tablero, tablero_iniciado):
@@ -39,7 +56,13 @@ def entrada(tablero_iniciado):
         print(tablero_iniciado[2])
         
         mostrar_dique()
-        barco_seleccion = int(input("Elige un barco por su número "))
+        
+        while True:
+            try:
+                barco_seleccion = int(input("Elige un barco por su número "))
+                break
+            except ValueError:
+                print("Por favor, introduce un número válido.")
         
         if barco_seleccion == 0:
             break

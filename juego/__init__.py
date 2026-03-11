@@ -9,7 +9,8 @@ from .enemigo import iniciar_bot
 
 def iniciar():
     # z = int(input("Introduce el tamanno del tablero: "))
-    tablero = np.full((3, 10, 10), "_", dtype=str)
+    tablero = np.full((3, 11, 11), "_", dtype=str)
+    
     
     iniciar_bot(tablero)
     
