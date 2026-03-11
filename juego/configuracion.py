@@ -3,6 +3,7 @@
 import os
 import numpy as np
 from .barco import TIPOS_BARCOS
+from .partida import mostrar_tablero
 
 def mostrar_dique():
     print("Barcos en el dique")
@@ -51,10 +52,10 @@ def validar_colocacion(barco, orientacion, altitud, longitud, tamanno_tablero, t
 def entrada(tablero_iniciado):
     tamanno_tablero = tablero_iniciado.shape[1]
     while any(cantidad > 0 for _, (_, cantidad) in TIPOS_BARCOS.items()):
-        
+
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(tablero_iniciado[2])
-        
+        mostrar_tablero(tablero_iniciado[2])
+
         mostrar_dique()
         
         while True:
@@ -80,7 +81,7 @@ def entrada(tablero_iniciado):
         
         barco.fletar(orientacion, altitud, longitud, tablero_iniciado, 2)
         TIPOS_BARCOS[barco_seleccion] = (barco, cantidad - 1)
-        
+
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f"{barco.nombre} colocado!")
-        print(tablero_iniciado[2])
+        mostrar_tablero(tablero_iniciado[2])

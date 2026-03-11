@@ -25,12 +25,12 @@ def iniciar_bot(tablero_iniciado):
                 barco.fletar(orientacion, altitud, longitud, tablero_iniciado, 0)
             
 def disparar_bot(tablero_iniciado):
-    from .partida import apuntar, victoria
-    
+    from .partida import apuntar, victoria, mostrar_tablero
+
     i = random.randint(0, 9)
     j = random.randint(0, 9)
-    
-    
+
+
     if tablero_iniciado[2, i, j] in ("b", "d"):
         print("¡Te han dado!")
         tablero_iniciado[2, i, j] = "x"
@@ -42,7 +42,10 @@ def disparar_bot(tablero_iniciado):
         tablero_iniciado[2, i, j] = "O"
         input("")
         apuntar(tablero_iniciado)
-        
+
     os.system('cls' if os.name == 'nt' else 'clear')
-    print(tablero_iniciado[1:])
+    print("=== TU TABLERO ===")
+    mostrar_tablero(tablero_iniciado[2])
+    print("=== TABLERO DE DISPAROS ===")
+    mostrar_tablero(tablero_iniciado[1])
     

@@ -18,8 +18,8 @@ class Barco:
             tablero_iniciado[posicion, altitud, longitud:longitud +self.tamanno] = self.slora()
 
 TIPOS_BARCOS = {
-    1: (Barco("Txalupa", 1), 4),
-    2: (Barco("Bergantin", 2), 3),
-    3: (Barco("Carabela", 3), 2),
+    # 1: (Barco("Txalupa", 1), 4),
+    # 2: (Barco("Bergantin", 2), 3),
+    # 3: (Barco("Carabela", 3), 2),
     4: (Barco("Galeón", 4), 1)
     }
